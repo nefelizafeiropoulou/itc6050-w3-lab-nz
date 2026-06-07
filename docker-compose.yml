@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: itc6050_pg
+    environment:
+      POSTGRES_USER: itc6050
+      POSTGRES_PASSWORD: itc6050
+      POSTGRES_DB: shop_lab
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  mongo:
+    image: mongo:7
+    container_name: itc6050_mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: itc6050
+      MONGO_INITDB_ROOT_PASSWORD: itc6050
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  pgdata:
+  mongo_data:
